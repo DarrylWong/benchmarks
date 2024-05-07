@@ -20,6 +20,13 @@ func gitShallowClone(dir, url, ref string) error {
 	return err
 }
 
+func gitDeepClone(dir, url, ref string) error {
+	cmd := exec.Command("git", "clone", "--recursive", "-b", ref, url, dir)
+	log.TraceCommand(cmd, false)
+	_, err := cmd.Output()
+	return err
+}
+
 func gitCloneToCommit(dir, url, branch, hash string) error {
 	cloneCmd := exec.Command("git", "clone", "-b", branch, url, dir)
 	log.TraceCommand(cloneCmd, false)
