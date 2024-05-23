@@ -40,6 +40,12 @@ var allBenchmarks = []benchmark{
 		generator:   generators.BleveIndex(),
 	},
 	{
+		name:        "cockroachdb",
+		description: "Distributed database",
+		harness:     harnesses.CockroachDB{},
+		generator:   generators.None{},
+	},
+	{
 		name:        "etcd",
 		description: "Distributed key-value store",
 		harness:     harnesses.Etcd{},
